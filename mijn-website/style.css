@@ -1,0 +1,31 @@
+input {
+    display: block;
+    /*width: 200px;*/
+    /*border-radius: 5px;*/
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+}
+
+select {
+    display: block;
+    width: 177px;
+    margin-bottom: 1rem;
+}
+
+p {
+    text-decoration-line: underline;
+}
+
+textarea {
+    border: solid red;
+    outline: none;
+    width: 450px;
+    height: 100px;
+}
+textarea:focus {
+    border: solid green;
+    outline: none;
+}

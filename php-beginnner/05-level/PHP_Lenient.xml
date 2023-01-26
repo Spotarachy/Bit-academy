@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="BitAcademyPHPLenient"
+         xsi:noNamespaceSchemaLocation="../../../phpcs.xsd">
+    <description>Based off the PSR-12 standard, but with a few rules disabled</description>
+
+    <exclude-pattern>*/Tests/*</exclude-pattern>
+    <exclude-pattern>*/assets/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>**.js</exclude-pattern>
+    <exclude-pattern>**.css</exclude-pattern>
+
+    <!-- Include the whole PSR-12 standard minus a few to make it more lenient -->
+    <rule ref="PSR12">
+        <exclude name="PSR2.Files.EndFileNewline"/>
+        <exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+        <exclude name="Squiz.Scope.MethodScope.Missing"/>
+        <exclude name="PSR2.ControlStructures.ElseIfDeclaration.NotAllowed"/>
+        <exclude name="PSR2.Files.ClosingTag.NotAllowed"/>
+        <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+        <exclude name="Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma"/>
+        <exclude name="Generic.Files.LineEndings.InvalidEOLChar"/>
+        <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
+        <exclude name="Generic.PHP.DisallowShortOpenTag"/>
+        <exclude name="Generic.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition"/>
+    </rule>
+
+    <!-- We're ok with tabs and spaces being used, so disable that-->
+    <rule ref="Generic.WhiteSpace.DisallowTabIndent.TabsUsed">
+        <severity>0</severity>
+    </rule>
+
+    <!-- This triggers when we have a .php file without any php in it, for example just containing HTML.
+    Which we have a few exercises so we have to allow it-->
+    <rule ref="Internal.NoCodeFound">
+        <severity>0</severity>
+    </rule>
+
+    <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+    <rule ref="Generic.ControlStructures.DisallowYodaConditions"/>
+    <rule ref="Generic.CodeAnalysis.EmptyPHPStatement"/>
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+    <rule ref="Generic.CodeAnalysis.AssignmentInCondition"/>
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+    <rule ref="Generic.PHP.Syntax"/>
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.Strings.UnnecessaryStringConcat"/>
+    <rule ref="Internal.LineEndings.Mixed">
+        <type>error</type>
+    </rule>
+
+
+    <rule ref="Generic.Commenting.Todo"/>
+    <rule ref="Squiz.PHP.CommentedOutCode"/>
+
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="200"/>
+            <property name="absoluteLineLimit" value="200"/>
+            <property name="ignoreComments" value="true"/>
+        </properties>
+    </rule>
+
+    <rule ref="Generic.Metrics.NestingLevel">
+        <properties>
+            <property name="absoluteNestingLevel" value="6"/>
+        </properties>
+    </rule>
+
+</ruleset>

@@ -1,0 +1,11 @@
+
+input {
+    display: block;
+    margin-bottom: 1rem;
+    width: 200px; 
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+}
